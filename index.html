@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iftekhar Alam — CSE @ IUT</title>
+<meta name="description" content="Portfolio of Md. Iftekhar Alam, Computer Science and Engineering student at Islamic University of Technology.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23c0c0c0'/><rect x='1' y='1' width='14' height='4' fill='%231b00d4'/><rect x='2' y='7' width='10' height='2' fill='%23000'/><rect x='2' y='11' width='7' height='2' fill='%23000'/></svg>">
+
+<style>
+/* ---------------------------------------------------------------
+   Iftekhar Alam — portfolio
+   One file, no build step. Drop into a repo and enable GitHub Pages.
+
+   To add a project:  copy a .card block inside the Projects window.
+   To add a section:  copy a whole <section class="window"> block,
+                      give it a new id, and add a matching entry to
+                      the Start menu list near the bottom.
+----------------------------------------------------------------*/
+
+:root{
+  --silver:#c0c0c0;
+  --silver-lit:#dfdfdf;
+  --silver-dim:#808080;
+  --ink:#0a0a0a;
+  --blue:#1b00d4;
+  --blue-lit:#4a7fe8;
+  --paper:#fdfdfd;
+  --shadow:rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  padding:0 0 64px;
+  font-family:'VT323','Courier New',monospace;
+  font-size:21px;
+  line-height:1.45;
+  color:var(--ink);
+  background:#5aa9e6;
+  min-height:100vh;
+}
+
+/* Original pixel-art wallpaper, drawn for this site. Fixed so it behaves like
+   a desktop background while the windows scroll over it. */
+body::after{
+  content:"";
+  position:fixed; inset:0; z-index:-1;
+  background:url("bg.png") center/cover no-repeat #5aa9e6;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+}
+
+/* ---------------- window chrome ---------------- */
+
+.window{
+  position:relative;
+  background:var(--silver);
+  border-top:2px solid var(--silver-lit);
+  border-left:2px solid var(--silver-lit);
+  border-right:2px solid #000;
+  border-bottom:2px solid #000;
+  box-shadow:3px 3px 0 var(--shadow);
+  z-index:1;
+}
+.window::after{
+  content:"";
+  position:absolute; inset:0; pointer-events:none;
+  border-top:1px solid #fff; border-left:1px solid #fff;
+  border-right:1px solid var(--silver-dim); border-bottom:1px solid var(--silver-dim);
+}
+
+.titlebar{
+  display:flex; align-items:center; gap:8px;
+  padding:5px 5px 5px 8px;
+  background:linear-gradient(90deg,var(--blue) 0%,var(--blue-lit) 100%);
+  color:#fff;
+  font-family:'Silkscreen',monospace;
+  font-size:14px; letter-spacing:.5px;
+  user-select:none;
+}
+.frozen .titlebar{cursor:move}
+.titlebar .dot{
+  width:14px; height:14px; flex:none;
+  background:var(--silver);
+  border-top:1px solid #fff; border-left:1px solid #fff;
+  border-right:1px solid #000; border-bottom:1px solid #000;
+}
+.titlebar h2{margin:0; font-size:14px; font-weight:400; flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+.tb-btn{
+  width:22px; height:20px; flex:none;
+  display:grid; place-items:center;
+  background:var(--silver);
+  border-top:1px solid #fff; border-left:1px solid #fff;
+  border-right:1px solid #000; border-bottom:1px solid #000;
+  font-family:'Silkscreen',monospace; font-size:11px; line-height:1;
+  color:#000; cursor:pointer; padding:0;
+}
+.tb-btn:active{
+  border-top:1px solid #000; border-left:1px solid #000;
+  border-right:1px solid #fff; border-bottom:1px solid #fff;
+}
+.tb-btn:focus-visible{outline:2px dotted #fff; outline-offset:1px}
+
+.menubar{
+  display:flex; gap:16px;
+  padding:3px 10px;
+  border-bottom:1px solid var(--silver-dim);
+  font-family:'Silkscreen',monospace; font-size:11px;
+}
+.menubar u{text-decoration:underline}
+
+.body{
+  background:var(--paper);
+  margin:3px;
+  padding:16px 18px 18px;
+  border-top:1px solid var(--silver-dim); border-left:1px solid var(--silver-dim);
+  border-right:1px solid #fff; border-bottom:1px solid #fff;
+}
+
+/* ---------------- typography ---------------- */
+
+h1,h3,h4{font-family:'Silkscreen',monospace; font-weight:700; margin:0}
+
+h1{
+  font-size:29px; line-height:1.3;
+  display:inline;
+  background:var(--blue); color:#fff;
+  padding:2px 8px;
+  box-decoration-break:clone; -webkit-box-decoration-break:clone;
+}
+
+h3{
+  font-size:15px;
+  background:var(--blue); color:#fff;
+  display:inline-block;
+  padding:3px 9px;
+  margin-bottom:11px;
+}
+
+h4{font-size:13px; margin-bottom:4px}
+
+p{margin:0 0 12px}
+p:last-child{margin-bottom:0}
+
+a{color:var(--blue); text-underline-offset:3px}
+a:hover{background:var(--blue); color:#fff; text-decoration:none}
+a:focus-visible{outline:2px solid var(--blue); outline-offset:2px}
+
+ul{margin:0; padding-left:22px}
+li{margin-bottom:5px}
+
+.muted{color:#3a3a3a}
+
+.tag{
+  display:inline-block;
+  font-family:'Silkscreen',monospace; font-size:10px;
+  background:var(--silver);
+  padding:3px 7px; margin:4px 4px 0 0;
+  border-top:1px solid #fff; border-left:1px solid #fff;
+  border-right:1px solid var(--silver-dim); border-bottom:1px solid var(--silver-dim);
+}
+
+/* ---------------- layout ---------------- */
+
+.desktop{
+  position:relative; z-index:1;
+  max-width:1380px; margin:0 auto;
+  padding:26px 20px 40px;
+  display:flex; gap:26px; align-items:flex-start;
+}
+.col{display:flex; flex-direction:column; gap:26px; min-width:0}
+.col-main{flex:7 1 0}
+.col-side{flex:5 1 0}
+
+/* JS pins each window where this layout put it, so windows become
+   draggable without leaving holes behind. */
+.desktop.frozen{display:block}
+.desktop.frozen .col{display:contents}
+.desktop.frozen .window{position:absolute}
+
+/* ---------------- pieces ---------------- */
+
+.intro{display:flex; gap:18px; align-items:flex-start; flex-wrap:wrap}
+.intro .who{flex:1 1 300px; min-width:0}
+.avatar{
+  width:210px; height:210px; flex:none;
+  display:block; object-fit:cover;
+  background:#dfe9f2;
+  padding:3px;
+  border-top:2px solid var(--silver-dim); border-left:2px solid var(--silver-dim);
+  border-right:2px solid #fff; border-bottom:2px solid #fff;
+  image-rendering:auto;
+}
+.subtitle{margin-top:12px; font-size:22px}
+
+.card{
+  background:#f4f4f4;
+  border-top:1px solid var(--silver-dim); border-left:1px solid var(--silver-dim);
+  border-right:1px solid #fff; border-bottom:1px solid #fff;
+  padding:12px 14px;
+  margin-bottom:12px;
+}
+.card:last-child{margin-bottom:0}
+.card p{margin-bottom:6px}
+
+.timeline{list-style:none; padding:0; margin:0}
+.timeline li{
+  display:flex; gap:12px; align-items:baseline;
+  padding:7px 0;
+  border-bottom:1px dotted var(--silver-dim);
+}
+.timeline li:last-child{border-bottom:0}
+.timeline .year{
+  font-family:'Silkscreen',monospace; font-size:12px;
+  color:var(--blue); flex:none; min-width:52px;
+}
+.timeline.plain li{ gap:0 }
+
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(118px,1fr)); gap:10px; align-items:stretch}
+.chip{
+  background:var(--silver);
+  text-transform:none;
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid var(--silver-dim); border-bottom:2px solid var(--silver-dim);
+  padding:12px 8px; text-align:center;
+  font-family:'Silkscreen',monospace; font-size:12px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.chip small{display:block; font-family:'VT323',monospace; font-size:17px; color:#333; margin-top:5px}
+
+.trophy{
+  display:flex; gap:14px; align-items:flex-start;
+  background:#fffbe6;
+  border-top:1px solid var(--silver-dim); border-left:1px solid var(--silver-dim);
+  border-right:1px solid #fff; border-bottom:1px solid #fff;
+  padding:12px 14px;
+}
+.trophy .mark{font-size:30px; line-height:1; flex:none}
+
+.contact-list{list-style:none; padding:0; margin:0}
+.contact-list li{display:flex; gap:12px; align-items:baseline; padding:7px 0; flex-wrap:wrap}
+.contact-list .label{
+  font-family:'Silkscreen',monospace; font-size:11px;
+  flex:none; min-width:88px;
+}
+
+/* ---------------- sign-off ---------------- */
+
+.signoff{
+  position:relative; z-index:1;
+  max-width:1380px;
+  margin:0 auto;
+  padding:0 20px 34px;
+  display:flex; justify-content:center; align-items:flex-end;
+  gap:18px; flex-wrap:wrap;
+}
+.mascot{
+  width:152px; height:120px; flex:none;
+  image-rendering:pixelated; image-rendering:crisp-edges;
+}
+.bubbles{ display:flex; flex-direction:column; gap:12px; align-items:flex-start }
+.bubble{
+  position:relative;
+  margin:0;
+  padding:14px 22px;
+  background:var(--paper);
+  border:3px solid #1a1a1e;
+  border-radius:12px;
+  font-family:'Silkscreen',monospace;
+  font-size:15px; color:#15202B;
+}
+/* tail, drawn as two squares so it stays pixel-flavoured */
+.bubble::before{
+  content:""; position:absolute; left:-12px; bottom:14px;
+  width:12px; height:8px; background:var(--paper);
+  border-left:3px solid #1a1a1e; border-bottom:3px solid #1a1a1e;
+}
+.signoff blockquote{
+  margin:0;
+  padding:14px 26px;
+  background:rgba(12,18,30,.62);
+  border-top:1px solid rgba(255,255,255,.35);
+  border-left:1px solid rgba(255,255,255,.35);
+  border-right:1px solid rgba(0,0,0,.5);
+  border-bottom:1px solid rgba(0,0,0,.5);
+  font-family:'Silkscreen',monospace;
+  font-size:15px; line-height:1.6;
+  color:#f4f9ff;
+  text-align:center;
+}
+
+@media (max-width:520px){
+  .signoff{ gap:10px }
+  .signoff blockquote{ font-size:12px; padding:12px 16px }
+  .bubble{ font-size:12px; padding:11px 15px }
+  .mascot{ width:104px; height:82px }
+}
+
+.dl{
+  display:inline-block;
+  padding:9px 18px;
+  background:var(--silver); color:#000;
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid #000; border-bottom:2px solid #000;
+  font-family:'Silkscreen',monospace; font-size:12px;
+  text-decoration:none;
+}
+.dl:hover{ background:#cfcfcf; color:#000 }
+.dl:active{
+  border-top:2px solid #000; border-left:2px solid #000;
+  border-right:2px solid #fff; border-bottom:2px solid #fff;
+}
+
+/* ---------------- taskbar ---------------- */
+
+.taskbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  display:flex; align-items:center; gap:6px;
+  padding:4px 6px;
+  background:var(--silver);
+  border-top:2px solid #fff;
+  box-shadow:0 -2px 0 var(--silver-dim);
+}
+
+.start{
+  display:flex; align-items:center; gap:7px;
+  padding:5px 11px 5px 8px;
+  background:var(--silver);
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid #000; border-bottom:2px solid #000;
+  font-family:'Silkscreen',monospace; font-size:13px;
+  cursor:pointer; flex:none;
+}
+.start[aria-expanded="true"]{
+  border-top:2px solid #000; border-left:2px solid #000;
+  border-right:2px solid #fff; border-bottom:2px solid #fff;
+}
+.start .flag{
+  width:16px; height:16px; flex:none;
+  background:
+    linear-gradient(90deg,#e33 0 50%,#3c3 50% 100%) top/100% 50% no-repeat,
+    linear-gradient(90deg,#39f 0 50%,#fc0 50% 100%) bottom/100% 50% no-repeat;
+}
+
+.tasks{display:flex; gap:5px; flex:1; overflow-x:auto; scrollbar-width:none}
+.tasks::-webkit-scrollbar{display:none}
+.task{
+  padding:5px 12px;
+  background:var(--silver);
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid #000; border-bottom:2px solid #000;
+  font-family:'Silkscreen',monospace; font-size:11px;
+  white-space:nowrap; cursor:pointer;
+}
+.task[aria-pressed="false"]{opacity:.6}
+.task[aria-pressed="false"]:hover{opacity:.85}
+
+.tray{
+  padding:5px 12px; flex:none;
+  border-top:1px solid var(--silver-dim); border-left:1px solid var(--silver-dim);
+  border-right:1px solid #fff; border-bottom:1px solid #fff;
+  font-family:'Silkscreen',monospace; font-size:11px;
+}
+
+.startmenu{
+  position:fixed; left:6px; bottom:46px; z-index:60;
+  width:252px;
+  background:var(--silver);
+  border-top:2px solid #fff; border-left:2px solid #fff;
+  border-right:2px solid #000; border-bottom:2px solid #000;
+  box-shadow:3px 3px 0 var(--shadow);
+  display:none;
+}
+.startmenu[data-open="true"]{display:flex}
+.startmenu .spine{width:30px; flex:none; background:linear-gradient(180deg,var(--blue),#0a0070)}
+.startmenu .spine span{
+  display:block;
+  font-family:'Silkscreen',monospace; font-size:13px; color:#fff;
+  writing-mode:vertical-rl; transform:rotate(180deg);
+  padding:12px 0 12px 8px; letter-spacing:2px;
+}
+.startmenu ul{list-style:none; margin:0; padding:5px; flex:1}
+.startmenu li{margin:0}
+.startmenu button{
+  display:block; width:100%; text-align:left;
+  padding:8px 10px; background:none; border:0;
+  font-family:'VT323',monospace; font-size:19px; color:#000; cursor:pointer;
+}
+.startmenu button:hover,
+.startmenu button:focus-visible{background:var(--blue); color:#fff; outline:none}
+.startmenu hr{border:0; border-top:1px solid var(--silver-dim); border-bottom:1px solid #fff; margin:5px 4px}
+
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width:1000px){
+  .desktop{flex-direction:column; gap:20px; padding:18px 14px 30px}
+  .col{display:contents}
+  .w-about{order:1} .w-edu{order:2} .w-projects{order:3} .w-wins{order:4}
+  .w-clubs{order:5} .w-skills{order:6} .w-likings{order:7} .w-cv{order:8} .w-contact{order:9}
+  body{font-size:20px}
+  h1{font-size:23px}
+}
+
+@media (max-width:520px){
+  body{padding-bottom:58px}
+  .body{padding:13px 13px 15px}
+  h1{font-size:18px}
+  h3{font-size:13px}
+  .avatar{width:150px; height:150px}
+  .tray{display:none}
+  .task{font-size:10px; padding:5px 9px}
+  .contact-list .label{min-width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important}
+}
+</style>
+</head>
+
+<body>
+
+<main class="desktop" id="desktop">
+
+<div class="col col-main">
+
+  <!-- ABOUT -->
+  <section class="window w-about" id="win-about" aria-labelledby="t-about">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-about">readme.txt — Notepad</h2>
+      <button class="tb-btn" type="button" data-close="win-about" aria-label="Close readme.txt">×</button>
+    </div>
+    <div class="menubar" aria-hidden="true">
+      <span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>H</u>elp</span>
+    </div>
+    <div class="body">
+      <div class="intro">
+        <img class="avatar" src="photo.jpg" width="640" height="640"
+             alt="Iftekhar Alam, photographed on the IUT campus." loading="lazy" decoding="async">
+        <div class="who">
+          <h1>Md. Iftekhar Alam</h1>
+          <p class="subtitle">Computer Science &amp; Engineering at Islamic University of Technology. Second year, fourth semester.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px">Just an ordinary CSE guy. I like building things that actually run — a game menu, a banking system, a dispatch planner — and working out why they break when they do.</p>
+      <p>My foundations are in programming, problem solving, object-oriented design and database concepts. Outside coursework I'm involved in robotics and competitive programming through the societies at IUT.</p>
+      <p>Most of what I build starts as coursework and then turns into something I keep poking at afterwards. This page is where those end up.</p>
+      <p class="muted">Currently open to internships, volunteering and software projects.</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="window w-projects" id="win-projects" aria-labelledby="t-projects">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-projects">Projects</h2>
+      <button class="tb-btn" type="button" data-close="win-projects" aria-label="Close Projects">×</button>
+    </div>
+    <div class="body">
+      <h3>What I&rsquo;ve built</h3>
+
+      <div class="card">
+        <h4>MOTT</h4>
+        <p>A house borrowing system — listing properties, handling borrow requests, and tracking who has what and for how long.</p>
+        <p><span class="tag">C++</span><span class="tag">OOP</span><span class="tag">CRUD</span></p>
+      </div>
+
+      <div class="card">
+        <h4>Banking System</h4>
+        <p>A console banking application in C++: accounts, deposits, withdrawals, transfers and transaction history, with file-based persistence between runs.</p>
+        <p><span class="tag">C++</span><span class="tag">OOP</span><span class="tag">File I/O</span></p>
+      </div>
+
+      <div class="card">
+        <h4>Unravel</h4>
+        <p>A game menu front end built in JavaFX — the shell for a game I&rsquo;m planning to build on jMonkeyEngine.</p>
+        <p><span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">jMonkeyEngine</span></p>
+      </div>
+
+      <div class="card">
+        <h4>Emergency Blood Supply Distribution</h4>
+        <p>A decision engine that turns simultaneous hospital blood requests into a dispatch plan: Dijkstra for routing, Edmonds&ndash;Karp for allocation, greedy triage for urgency, and knapsack DP for loading vehicles.</p>
+        <p><span class="tag">C++17</span><span class="tag">Graphs</span><span class="tag">Max-flow</span><span class="tag">Dynamic programming</span></p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- RESUME -->
+  <section class="window w-cv" id="win-cv" aria-labelledby="t-cv">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-cv">Resume</h2>
+      <button class="tb-btn" type="button" data-close="win-cv" aria-label="Close Resume">×</button>
+    </div>
+    <div class="body">
+      <h3>Curriculum vitae</h3>
+      <p>Computer Science and Engineering undergraduate at IUT, with a foundation in programming, problem solving, object-oriented design and database concepts. Active in robotics, competitive programming and the technical societies on campus.</p>
+      <p class="muted">Open to internships, volunteering and software projects.</p>
+      <p style="margin-top:14px"><a class="dl" href="cv.pdf" target="_blank" rel="noopener">View CV (PDF)</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="window w-contact" id="win-contact" aria-labelledby="t-contact">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-contact">Contact</h2>
+      <button class="tb-btn" type="button" data-close="win-contact" aria-label="Close Contact">×</button>
+    </div>
+    <div class="body">
+      <h3>Reach me</h3>
+      <ul class="contact-list">
+        <li><span class="label">Email</span><a href="mailto:ifti1731@gmail.com">ifti1731@gmail.com</a></li>
+        <li><span class="label">GitHub</span><a href="https://github.com/aether1731" rel="me">github.com/aether1731</a></li>
+        <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/ifte-khar-alam-ifti-719780341/" rel="me">Ifte Khar Alam (Ifti)</a></li>
+        <li><span class="label">Facebook</span><a href="https://www.facebook.com/aetherS31" rel="me">facebook.com/aetherS31</a></li>
+        <li><span class="label">Based in</span><span>IUT, Boardbazar, Gazipur, Dhaka</span></li>
+        <li><span class="label">Languages</span><span>English and Bangla, both fluent</span></li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /col-main -->
+
+<div class="col col-side">
+
+  <!-- EDUCATION -->
+  <section class="window w-edu" id="win-edu" aria-labelledby="t-edu">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-edu">Education</h2>
+      <button class="tb-btn" type="button" data-close="win-edu" aria-label="Close Education">×</button>
+    </div>
+    <div class="body">
+      <h3>Timeline</h3>
+      <ul class="timeline plain">
+        <li><span>Secondary School Certificate (SSC)<br><span class="muted">Chittagong University School and College</span></span></li>
+        <li><span>Higher Secondary School Certificate (HSC)<br><span class="muted">Cambrian College, Chittagong</span></span></li>
+        <li><span>B.Sc. in Computer Science &amp; Engineering<br><span class="muted">Islamic University of Technology, Gazipur · 2nd year, 4th semester</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="window w-wins" id="win-wins" aria-labelledby="t-wins">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-wins">Achievements</h2>
+      <button class="tb-btn" type="button" data-close="win-wins" aria-label="Close Achievements">×</button>
+    </div>
+    <div class="body">
+      <h3>Competitions</h3>
+      <div class="trophy">
+        <span class="mark" aria-hidden="true">&#127942;</span>
+        <div>
+          <h4>Teckathon 2.0 — Line Following Robot</h4>
+          <p class="muted" style="margin:0">Winner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SOCIETIES -->
+  <section class="window w-clubs" id="win-clubs" aria-labelledby="t-clubs">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-clubs">Societies</h2>
+      <button class="tb-btn" type="button" data-close="win-clubs" aria-label="Close Societies">×</button>
+    </div>
+    <div class="body">
+      <h3>Where I turn up</h3>
+      <ul class="timeline">
+        <li><span class="year">2026</span><span>Volunteer<br><span class="muted">12th ICT Fest</span></span></li>
+        <li><span class="year">2025</span><span>Volunteer<br><span class="muted">CodeRush 2025</span></span></li>
+        <li><span class="year">2024&ndash;</span><span>Olympiad Executive<br><span class="muted">IUT Al-Fazari Interstellar Society</span></span></li>
+        <li><span class="year">2024&ndash;</span><span>General Member<br><span class="muted">IUT Computer Society</span></span></li>
+        <li><span class="year">2024&ndash;</span><span>General Member<br><span class="muted">IUT Robotics Society</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="window w-skills" id="win-skills" aria-labelledby="t-skills">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-skills">Skills</h2>
+      <button class="tb-btn" type="button" data-close="win-skills" aria-label="Close Skills">×</button>
+    </div>
+    <div class="body">
+      <h3>Toolbox</h3>
+      <div class="grid2">
+        <div class="chip">C / C++<small>Primary</small></div>
+        <div class="chip">Python<small>Scripting</small></div>
+        <div class="chip">Java<small>JavaFX</small></div>
+        <div class="chip">DSA</div>
+        <div class="chip">OOP<small>Design</small></div>
+        <div class="chip">SQL / DBMS</div>
+        <div class="chip">Git<small>Version control</small></div>
+        <div class="chip">CP<small>Competitive programming</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIKINGS -->
+  <section class="window w-likings" id="win-likings" aria-labelledby="t-likings">
+    <div class="titlebar">
+      <span class="dot" aria-hidden="true"></span>
+      <h2 id="t-likings">Likings</h2>
+      <button class="tb-btn" type="button" data-close="win-likings" aria-label="Close Likings">×</button>
+    </div>
+    <div class="body">
+      <h3>Away from the desk</h3>
+      <ul>
+        <li>Music</li>
+        <li>Football</li>
+        <li>Cricket</li>
+        <li>Movies and web series</li>
+        <li>Anime</li>
+        <li>Gaming</li>
+        <li>Sightseeing</li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /col-side -->
+
+</main>
+
+<figure class="signoff">
+  <img class="mascot" src="mascot.png" width="76" height="60" alt="" aria-hidden="true">
+  <div class="bubbles">
+    <p class="bubble">Good luck reading that&thinsp;!</p>
+    <blockquote>&ldquo;I just want to touch some grass.&rdquo;</blockquote>
+  </div>
+</figure>
+
+<!-- START MENU -->
+<nav class="startmenu" id="startmenu" data-open="false" aria-label="Jump to a section">
+  <div class="spine" aria-hidden="true"><span>Iftekhar</span></div>
+  <ul>
+    <li><button type="button" data-goto="win-about">About me</button></li>
+    <li><button type="button" data-goto="win-projects">Projects</button></li>
+    <li><button type="button" data-goto="win-edu">Education</button></li>
+    <li><button type="button" data-goto="win-wins">Achievements</button></li>
+    <li><button type="button" data-goto="win-clubs">Societies</button></li>
+    <li><button type="button" data-goto="win-skills">Skills</button></li>
+    <li><button type="button" data-goto="win-likings">Likings</button></li>
+    <hr>
+    <li><button type="button" data-goto="win-cv">Resume</button></li>
+    <li><button type="button" data-goto="win-contact">Contact</button></li>
+  </ul>
+</nav>
+
+<!-- TASKBAR -->
+<div class="taskbar">
+  <button class="start" id="startbtn" type="button" aria-expanded="false" aria-controls="startmenu">
+    <span class="flag" aria-hidden="true"></span>Start
+  </button>
+  <div class="tasks" id="tasks"></div>
+  <span class="tray" id="clock">--:--</span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var desktop = document.getElementById('desktop');
+  var windows = Array.prototype.slice.call(desktop.querySelectorAll('.window'));
+  var topZ = 10;
+
+  function reduced(){
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  /* ---- taskbar ---- */
+  var tasks = document.getElementById('tasks');
+  windows.forEach(function(win){
+    var label = win.querySelector('.titlebar h2').textContent.split('—')[0].trim();
+    var btn = document.createElement('button');
+    btn.className = 'task';
+    btn.type = 'button';
+    btn.textContent = label;
+    btn.setAttribute('aria-pressed','true');
+    btn.addEventListener('click', function(){
+      if (win.hidden) openWin(win); else raise(win);
+    });
+    win.__task = btn;
+    tasks.appendChild(btn);
+  });
+
+  function openWin(win){
+    win.hidden = false;
+    win.__task.setAttribute('aria-pressed','true');
+    raise(win);
+  }
+  function closeWin(win){
+    win.hidden = true;
+    win.__task.setAttribute('aria-pressed','false');
+  }
+  function raise(win){
+    topZ += 1;
+    win.style.zIndex = topZ;
+    win.scrollIntoView({block:'nearest', behavior: reduced() ? 'auto' : 'smooth'});
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-close]') : null;
+    if (t) closeWin(document.getElementById(t.getAttribute('data-close')));
+  });
+
+  /* ---- start menu ---- */
+  var startbtn  = document.getElementById('startbtn');
+  var startmenu = document.getElementById('startmenu');
+
+  function setMenu(on){
+    startmenu.setAttribute('data-open', on ? 'true' : 'false');
+    startbtn.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  startbtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    setMenu(startmenu.getAttribute('data-open') !== 'true');
+  });
+  startmenu.addEventListener('click', function(e){
+    var b = e.target.closest ? e.target.closest('[data-goto]') : null;
+    if (!b) return;
+    openWin(document.getElementById(b.getAttribute('data-goto')));
+    setMenu(false);
+  });
+  document.addEventListener('click', function(){ setMenu(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+
+  /* ---- clock ---- */
+  var clock = document.getElementById('clock');
+  function tick(){
+    var d = new Date(), h = d.getHours(), m = d.getMinutes();
+    var ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    clock.textContent = h + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
+  }
+  tick(); setInterval(tick, 30000);
+
+  /* ---- freeze the flow layout so windows can be dragged ---- */
+  var frozen = false;
+
+  function freeze(){
+    if (frozen || window.innerWidth < 1000) return;
+    var base = desktop.getBoundingClientRect();
+    var pos = windows.map(function(win){
+      var r = win.getBoundingClientRect();
+      return {left:r.left - base.left, top:r.top - base.top, w:r.width, bottom:r.bottom - base.top};
+    });
+    var tallest = 0;
+    pos.forEach(function(p){ if (p.bottom > tallest) tallest = p.bottom; });
+    desktop.style.height = (tallest + 40) + 'px';
+    desktop.classList.add('frozen');
+    windows.forEach(function(win, i){
+      win.style.left  = pos[i].left + 'px';
+      win.style.top   = pos[i].top + 'px';
+      win.style.width = pos[i].w + 'px';
+    });
+    frozen = true;
+  }
+
+  function thaw(){
+    if (!frozen) return;
+    desktop.classList.remove('frozen');
+    desktop.style.height = '';
+    windows.forEach(function(win){
+      win.style.left = ''; win.style.top = ''; win.style.width = ''; win.style.zIndex = '';
+    });
+    frozen = false;
+  }
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(freeze);
+  else window.addEventListener('load', freeze);
+
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      if (window.innerWidth < 1000) thaw();
+      else if (!frozen) freeze();
+    }, 180);
+  });
+
+  /* ---- dragging ---- */
+  windows.forEach(function(win){
+    var bar = win.querySelector('.titlebar');
+    var dragging = false, offX = 0, offY = 0;
+
+    bar.addEventListener('pointerdown', function(e){
+      raise(win);
+      if (!frozen) return;
+      if (e.target.closest && e.target.closest('.tb-btn')) return;
+      dragging = true;
+      var r = win.getBoundingClientRect();
+      offX = e.clientX - r.left;
+      offY = e.clientY - r.top;
+      bar.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+
+    bar.addEventListener('pointermove', function(e){
+      if (!dragging) return;
+      var base = desktop.getBoundingClientRect();
+      var maxX = desktop.clientWidth - win.offsetWidth;
+      var x = e.clientX - base.left - offX;
+      var y = e.clientY - base.top  - offY;
+      win.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+      win.style.top  = Math.max(0, y) + 'px';
+    });
+
+    function stop(e){
+      if (!dragging) return;
+      dragging = false;
+      try { bar.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    bar.addEventListener('pointerup', stop);
+    bar.addEventListener('pointercancel', stop);
+  });
+
+})();
+</script>
+
+</body>
+</html>
