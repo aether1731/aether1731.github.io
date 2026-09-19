@@ -50,20 +50,9 @@ The layout is two columns on desktop and a single column on phones. On desktop, 
 
 ---
 
-## AI tools used
-
-This site was built with assistance from **Claude (Anthropic)**.
-
-The design direction was chosen by me from a reference image; Claude implemented the HTML, CSS and JavaScript, and wrote the copy from biographical details I supplied. All content — projects, education, achievements, interests — is my own.
-
-Full prompt history: see `AI-PROMPTS.md`.
-
----
-
 ## Structure
 
 ```
 index.html      the entire site
 README.md       this file
-AI-PROMPTS.md   prompt history for the assignment's AI-disclosure requirement
 ```
